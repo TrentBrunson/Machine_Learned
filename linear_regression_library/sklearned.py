@@ -33,3 +33,32 @@ plt.scatter(X, y)
 plt.plot(X, y_pred, color='red')
 plt.show()
 # %%
+print(model.coef_)
+print(model.intercept_)
+# %%
+# practice training
+y=df['Salary']
+X=df['YearsExperience']
+# %%
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    random_state= 1,
+    # stratify=y
+)
+X_train.shape
+# %%
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(
+    solver='lgbfs',
+    max_iter=200,
+    random_state=1
+)
+# %%
+classifier.fit(X_train,y_train)
+# %%
+y_pred = classifier.predict(X_test)
+results = pd.DataFrame({'Prediction': y_pred, 'Actual': y_test}).reset_index(drop=True)
+results.head(20)
