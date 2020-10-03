@@ -42,5 +42,35 @@ df2['gender'] = le.fit_transform(df2['gender'])
 df2.head()
 # changed gender to 1 or 0; female = 0, male = 1
 # %%
+# custom label encoding with scikit LabelEncoder
 
+# old way
+loans_df['month_le'] = le.fit_transform(loans_df['month'])
+loans_df.head()
+# assigned values to new month_le column based on 
+# alphabetical order of previous month column
+# %%
+# want months in numerical order, create dictionary of key-value pairs
+months_num = {
+   "January": 1,
+   "February": 2,
+   "March": 3,
+   "April": 4,
+   "May": 5,
+   "June": 6,
+   "July": 7,
+   "August": 8,
+   "September": 9,
+   "October": 10,
+   "November": 11,
+   "December": 12,
+}
+# %%
+# use lamda (anonymous) function on month column to perform conversion to numeric values
+loans_df["month_num"] = loans_df["month"].apply(lambda x: months_num[x])
+loans_df.head()
+# %%
+# drop the old columns now that it's converted correctly
+loans_df = loans_df.drop(["month", "month_le"], axis=1)
+loans_df.head()
 # %%
