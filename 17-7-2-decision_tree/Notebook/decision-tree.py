@@ -84,7 +84,7 @@ cm = confusion_matrix(y_test, predictions)
 
 # Create a DataFrame from the confusion matrix.
 cm_df = pd.DataFrame(
-    cm, index=["Actual Good (0)", "Actual Bad (0)"], columns=["Predicted Good (0)", "Predicted Bad(1)"])
+    cm, index=["Actual Good (0)", "Actual Bad (1)"], columns=["Predicted Good (0)", "Predicted Bad(1)"])
 
 cm_df
 # %%
