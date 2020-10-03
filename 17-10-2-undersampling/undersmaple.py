@@ -82,3 +82,53 @@ print(classification_report_imbalanced(y_test, y_pred))
 # %%
 # start over sample
 # %%
+# implement random oversampling
+from imblearn.over_sampling import RandomOverSampler
+ros = RandomOverSampler(random_state=1)
+X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
+
+Counter(y_resampled)
+# %%
+# Logistic regression using random oversampled data
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression(solver='lbfgs', random_state=1)
+model.fit(X_resampled, y_resampled)
+# %%
+# Display the confusion matrix
+from sklearn.metrics import confusion_matrix
+
+y_pred = model.predict(X_test)
+confusion_matrix(y_test, y_pred)
+# %%
+from sklearn.metrics import balanced_accuracy_score
+
+balanced_accuracy_score(y_test, y_pred)
+# %%
+# Print the imbalanced classification report
+from imblearn.metrics import classification_report_imbalanced
+print(classification_report_imbalanced(y_test, y_pred))
+
+#%%
+# SMOTE
+# synthetic minority oversampling technique (SMOTE) 
+from imblearn.over_sampling import SMOTE
+
+X_resampled, y_resampled = SMOTE(random_state=1,
+sampling_strategy='auto').fit_resample(
+   X_train, y_train)
+
+Counter(y_resampled)
+# %%
+# train log regression model 
+model = LogisticRegression(solver='lbfgs', random_state=1)
+model.fit(X_resampled, y_resampled)
+# %%
+# predict results with log regression model
+y_pred = model.predict(X_test)
+balanced_accuracy_score(y_test, y_pred)
+#%%
+print(classification_report_imbalanced(y_test,y_pred))
+# %%
+# both over samples had almost identical results
+# slight improvements but not statistically significant increases
