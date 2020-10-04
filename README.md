@@ -23,7 +23,7 @@ This code implements several Machine Learning models to evaluate factors that ma
 **SMOTEENN** had a 66.2% accuracy overall, performed the best in the group with this data set. It scored well in true positives with recall/sensitivity scores of 75% for high-risk and while not the worst, it fell in the mid-range with 56% recall for low-risk with an average of 58% between the two.  Likewise, this model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests, despite its 99% overall precision.
 
 ###
-Recommendation
+Interim Evaluation
 ######
 Since **LendingClub** is a peer-to-peer lending, the assumption is that members are not mortgage brokers or bankers.  It's expected they lack the deep financial background to evaluate and manage lending risk; that's why they're in the this special club. As such, members require help to avoid high-risk situations, or when encountering one, assign a higher premium (interest rate) commensurate with the risk.  The model needs to be precise identifying those who are high-risk.  None of the models are.  None of these models are recommended from this group.  Next, will ensemble classifiers be less wrong?  They kind of have to be...99% miss rate in the key category is awful.
 
