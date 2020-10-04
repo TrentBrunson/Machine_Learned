@@ -25,7 +25,7 @@ This code implements several Machine Learning models to evaluate factors that ma
 ###
 Interim Evaluation
 ######
-Since **LendingClub** is a peer-to-peer lending, the assumption is that members are not mortgage brokers or bankers.  It's expected they lack the deep financial background to evaluate and manage lending risk; that's why they're in the this special club. As such, members require help to avoid high-risk situations, or when encountering one, assign a higher premium (interest rate) commensurate with the risk.  The model needs to be precise identifying those who are high-risk.  None of the models are.  None of these models are recommended from this group.  Next, will ensemble classifiers be less wrong?  They kind of have to be...99% miss rate in the key category is awful.
+Since **LendingClub** is a peer-to-peer lending, the assumption is that members are not mortgage brokers or bankers.  It's expected they lack the deep financial background to evaluate and manage lending risk; that's why they're in the this special club. As such, members require help to avoid high-risk situations, or when encountering one, assign a higher premium (interest rate) commensurate with the risk.  The model needs to be precise identifying those who are high-risk.  None of the models are.  None of these models are recommended from this group.  Next, will ensemble classifiers be less wrong?  They kind of have to be...99% miss rate in the key metric is awful.
 
 #### Ensemble Classifiers
 
