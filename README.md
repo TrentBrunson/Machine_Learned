@@ -26,15 +26,18 @@ Describe the precision, recall scores, balanced accuracy score.
   ratio of all +true in model to all actual trues
 
 
-**Random Oversampler** had a 59.3% accuracy overall. It scored poorly predicting true positives with recall/sensitivity scores of 56% for high-risk and 62% for low-risk.  This model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests.
+**Random Oversampler** had a 59.3% accuracy overall. It scored poorly predicting true positives with recall/sensitivity scores of 56% for high-risk and 62% for low-risk with an average of 62% between the two.  This model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests despite its 99% overall accuracy.
 
-**SMOTE** had a 59.3% accuracy overall. It scored poorly predicting true positives with recall/sensitivity scores of 56% for high-risk and 62% for low-risk.  This model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests.
+**SMOTE** had a 62.6% accuracy overall, a slight improvement over the Random Oversampler model. It scored poorly predicting true positives with recall/sensitivity scores of 69% for high-risk and 56% for low-risk with an average of 56% between the two.  Likewise, this model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests, despite its 99% overall accuracy.
 
-**Undersample** had a 59.3% accuracy overall. It scored poorly predicting true positives with recall/sensitivity scores of 56% for high-risk and 62% for low-risk.  This model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests.
+**Undersample with ClusterCentroids** had a 52.9% accuracy overall, a weaker performance compared to the others. It scored poorly predicting true positives with recall/sensitivity scores of 68% for high-risk and 38% for low-risk with an average of 38% between the two.  Likewise, this model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests, despite its 99% overall accuracy.  This model is the worst of the group.
 
-**SMOTEENN** had a 59.3% accuracy overall. It scored poorly predicting true positives with recall/sensitivity scores of 56% for high-risk and 62% for low-risk.  This model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests.
+**SMOTEENN** had a 66.2% accuracy overall, performed the best in the group with this data set. It scored well true positives with recall/sensitivity scores of 75% for high-risk and while not the worst, it fell in the mid-range with 56% recall for low-risk with an average of 58% between the two.  Likewise, this model caught all low-risk requests (100%) but caught a mere 1% of high-risk loan request, which is to say that it fails when the recommendation is most needed, for high-risk requests, despite its 99% overall accuracy.
 
+###
 Recommendation
+######
+Since **LendingClub** is a peer-to-peer lending, the assumption is that members are not mortgage brokers or bankers.  It's expected they lack the deep financial background to evaluate and manage lending risk; that's why they're in the this special club. As such, members require help to avoid high-risk situations, or when encountering one, assign a higher premium (interest rate) commensurate with the risk.  The model needs to be precise identifying those who are high-risk.  None of the models are.  None of these models are recommended from this group.  Next, will ensemble classifiers be less wrong?  They kind of have to be...99% miss rate in the key category is awful.
 
 #### Ensemble Classifiers
 
